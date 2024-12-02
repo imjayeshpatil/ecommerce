@@ -89,7 +89,7 @@ public class HomeController {
 	
 	
 	@GetMapping("/products")
-	public String products(Model m, @RequestParam(value = "category", defaultValue = "") String category,
+	public String products(Model m,String category,
 			@RequestParam(name = "pageNo", defaultValue = "0") Integer pageNo,
 			@RequestParam(name = "pageSize", defaultValue = "8") Integer pageSize,
 			@RequestParam(defaultValue = "") String ch) {
@@ -122,15 +122,8 @@ public class HomeController {
 	}
 	
 	
-	@GetMapping("/product/{id}")
-	public String product(@PathVariable int id,Model m) {
-		Product productById = productService.getProductById(id);
-		m.addAttribute("product",productById);
-		return "view_product";
-	}
-	
 	@PostMapping("/saveUser")
-	public String saveUser(@ModelAttribute MyUserDetails user,@RequestParam ("img") MultipartFile file,HttpSession session) throws IOException
+	public String saveUser(@ModelAttribute MyUserDetails user,HttpSession session) throws IOException
 	{
 		String imageName = file.isEmpty() ? "default.jpg" : file.getOriginalFilename();
 		user.setProfileImage(imageName);
@@ -166,7 +159,7 @@ public class HomeController {
 	}
 	
 	@PostMapping("/forget-password")
-	public String processForgotPassword(@RequestParam String email,HttpSession session,HttpServletRequest request) throws UnsupportedEncodingException, MessagingException
+	public String processForgotPassword(@RequestParam String email,HttpServletRequest request) throws UnsupportedEncodingException, MessagingException
 	{
 		
 		MyUserDetails userByEmail = userService.getUserByEmail(email);
