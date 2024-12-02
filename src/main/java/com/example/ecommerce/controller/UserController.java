@@ -72,7 +72,7 @@ public class UserController {
 	}
 	
 	@GetMapping("/addCart")
-	public String addToCard(@RequestParam Integer pid,@RequestParam Integer uid,HttpSession session)
+	public String addToCard(@RequestParam Integer pid,HttpSession session)
 	{
 		Cart saveCart = cartService.saveCart(pid, uid);
 		
