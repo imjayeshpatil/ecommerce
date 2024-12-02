@@ -8,6 +8,8 @@
 ![Screenshot (276)](https://github.com/user-attachments/assets/1ec93855-9a04-4d30-bdd1-0052a6d499a5)
 ## Cart Page
 ![Screenshot (286)](https://github.com/user-attachments/assets/213e8686-d66f-4484-8c63-50ef263337c5)
+## Billing page
+![Screenshot (287)](https://github.com/user-attachments/assets/01819100-1d86-48da-ab28-5bb101789c3b)
 ## Order id generated
 ![Screenshot (288)](https://github.com/user-attachments/assets/55ac6dd1-52fc-496b-b398-5db223029ebc)
 ## New Login For Admin add product,category,view orders, View user
@@ -19,5 +21,3 @@
 
 
 
-
-![Screenshot (287)](https://github.com/user-attachments/assets/01819100-1d86-48da-ab28-5bb101789c3b)
