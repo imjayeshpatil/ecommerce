@@ -8,6 +8,8 @@
 ![Screenshot (276)](https://github.com/user-attachments/assets/1ec93855-9a04-4d30-bdd1-0052a6d499a5)
 ## Cart Page
 ![Screenshot (286)](https://github.com/user-attachments/assets/213e8686-d66f-4484-8c63-50ef263337c5)
+## Order id generated
+![Screenshot (288)](https://github.com/user-attachments/assets/55ac6dd1-52fc-496b-b398-5db223029ebc)
 ![Screenshot (280)](https://github.com/user-attachments/assets/86688f45-c496-4575-ba33-f6599be80d23)
 ![Screenshot (279)](https://github.com/user-attachments/assets/374bd915-1c63-45c8-90f5-c6c96b1a82c7)
 ![Screenshot (278)](https://github.com/user-attachments/assets/65f875c3-2706-4c6d-acc5-e9be3a82fe68)
@@ -15,5 +17,5 @@
 
 
 
-![Screenshot (288)](https://github.com/user-attachments/assets/55ac6dd1-52fc-496b-b398-5db223029ebc)
+
 ![Screenshot (287)](https://github.com/user-attachments/assets/01819100-1d86-48da-ab28-5bb101789c3b)
