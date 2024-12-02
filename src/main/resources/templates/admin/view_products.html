@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{base::layout(~{::section})}">
+<head>
+<meta charset="UTF-8">
+<title>View Products</title>
+</head>
+<body>
+
+	<section>
+		<div class="container-fluid mt-1 p-5">
+			<div class="row">
+				<a href="/admin/" class="text-decoration"><i
+					class="fa-solid fa-arrow-left"> Back</i></a>
+				<th:block th:if="${session.succMsg}">
+					<p class="text-success text-center fw-bold">[[${session.succMsg}]]</p>
+					<th:block th:text="${@commonServiceImpl.removeSessionMessage()}"></th:block>
+				</th:block>
+
+				<th:block th:if="${session.errorMsg}">
+					<p class="text-danger fw-bold">[[${session.errorMsg}]]</p>
+					<th:block th:text="${@commonServiceImpl.removeSessionMessage()}"></th:block>
+				</th:block>
+
+				<!-- <div class="col-md-4 p-2">
+					<form action="admin/view_products" method="get">
+						<div class="row">
+							<div class="col">
+								<input type="text" class="form-control " name="ch">
+							</div>
+							<div class="col">
+								<button class="btn btn-primary col">Search</button>
+							</div>
+						</div>
+					</form>
+				</div> -->
+
+				<div class="card card-sh">
+					<div class="card-header text-center position-relative">
+						<p class="fs-4">View Products</p>
+
+						<!-- Container for the View Report button and Notification toggle -->
+						<div style="position: absolute; top: 10px; right: 10px;">
+							<!-- View Report Button -->
+							<a th:href="@{'view_reports'}" class="btn btn-primary me-4">View
+								Report</a>
+
+							<!-- Notification toggle with dynamic badge -->
+							<div class="notification-toggle me-3" title="Notifications">
+								<a th:href="@{'view_notification'}" class="notification-link"
+									title="Notifications"> <i class="fas fa-bell fs-4"></i> <span
+									class="badge rounded-pill bg-danger"
+									th:text="${productCount ?: 1}">3</span>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="card-body">
+						<table class="table ">
+							<thead>
+								<tr>
+									<th scope="col">Sr. No</th>
+									<th scope="col">Image</th>
+									<th scope="col">Title</th>
+									<th scope="col">Category</th>
+									<th scope="col">Price</th>
+									<th scope="col">Discount (%)</th>
+									<th scope="col">Discount Price</th>
+									<th scope="col">Status</th>
+									<th scope="col">Stock</th>
+									<th scope="col">Stock Added Date</th>
+									<th scope="col">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="p, c : ${view_products}">
+									<th scope="row">[[${c.count}]]</th>
+									<td><img th:src="@{'/img/product_img/' + ${p.image}}"
+										width="70px" height="70px"></td>
+									<td>[[${p.title}]]</td>
+									<td>[[${p.category}]]</td>
+									<td>[[${p.price}]]</td>
+									<td>[[${p.discount}]]</td>
+									<td>[[${p.discountPrice}]]</td>
+									<td>[[${p.isActive}]]</td>
+
+									<td><span th:if="${p.stock < 15}" class="text-danger"></span>
+										[[${p.stock}]]</td>
+									<td><span th:text="${p.stockAddedDate}">Stock Added
+											Date</span></td>
+									<td><a th:href="@{'/admin/edit_product/'+${p.id}}"
+										class="btn btn-sm btn-primary"> <i
+											class="fa-solid fa-pen-to-square"></i>
+									</a> <a th:href="@{'/admin/deleteProduct/'+${p.id}}"
+										class="btn btn-sm btn-danger"><i class="fa-solid fa-trash"></i>
+									</a></td>
+								</tr>
+							</tbody>
+						</table>
+
+						<!-- <div class="row">
+							<div class="col-md-4">Total Product : [[${totalElements}]]</div>
+							<div class="col-md-6">
+
+								<nav aria-label="Page navigation example">
+									<ul class="pagination">
+										<li class="page-item"
+											th:classappend="${isFirst} ? 'disabled':''"><a
+											class="page-link"
+											th:href="@{'/admin/category?pageNo='+${pageNo-1}}"
+											aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+										</a></li>
+
+										<li th:each="i : ${#numbers.sequence(1, totalPages)}"
+											class="page-item"
+											th:classappend="${pageNo + 1 == i} ? 'active' : ''"><a
+											class="page-link"
+											th:href="@{'/admin/products?pageNo=' + (${i - 1})}">[[${i}]]</a>
+										</li>
+
+										<li class="page-item"
+											th:classappend="${isLast} ? 'disabled':''"><a
+											class="page-link"
+											th:href="@{'/admin/category?pageNo='+${pageNo+1}}"
+											aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+										</a></li>
+									</ul>
+								</nav>
+							</div>
+
+						</div>
+ -->
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

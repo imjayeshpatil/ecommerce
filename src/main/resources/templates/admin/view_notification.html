@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{base::layout(~{::section})}">
+<head>
+<meta charset="UTF-8">
+<title>View Products</title>
+</head>
+<body>
+	<section>
+		<div class="container-fluid mt-5 p-5">
+			<div class="card card-sh">
+				<div class="card-header text-center position-relative">
+					<p class="fs-4" >Low Stock Report</p>
+
+					<th:block th:if="${session.succMsg}">
+						<p class="text-success fw-bold">[[${session.succMsg}]]</p>
+					</th:block>
+
+					<th:block th:if="${session.errorMsg}">
+						<p class="text-danger fw-bold">[[${session.errorMsg}]]</p>
+					</th:block>
+				</div>
+
+				<div class="card-body">
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">Sr. No</th>
+								<th scope="col">Title</th>
+								<th scope="col">Category</th>
+								<th scope="col">Price</th>
+								<th scope="col">Available Stock</th>
+								<th scope="col">Stock Added Date</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="p, c : ${view_products}">
+								<th scope="row">[[${c.count}]]</th>
+								<td>[[${p.title}]]</td>
+								<td>[[${p.category}]]</td>
+								<td>[[${p.price}]]</td>
+								<td>
+									<span th:if="${p.stock < 15}" class="text-danger"></span> 
+									[[${p.stock}]]
+								</td>
+								<td><span th:text="${p.stockAddedDate}">Stock Added Date</span></td>
+								
+								
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

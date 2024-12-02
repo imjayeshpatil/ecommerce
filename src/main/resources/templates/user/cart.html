@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>View Cart</title>
+</head>
+<body>
+    <section>
+        <div class="container-fluid mt-5 p-5">
+            <div class="card card-sh">
+                <div class="card-header text-center">
+                    <p class="fs-4">View Cart</p>
+
+                    <!-- Success Message -->
+                    <th:block th:if="${session.succMsg}">
+                        <p class="text-success fw-bold" th:text="${session.succMsg}"></p>
+                        <!-- Remove the session message -->
+                        <th:block th:text="${@commonServiceImpl.removeSessionMessage()}"></th:block>
+                    </th:block>
+
+                    <!-- Error Message -->
+                    <th:block th:if="${session.errorMsg}">
+                        <p class="text-danger fw-bold" th:text="${session.errorMsg}"></p>
+                        <!-- Remove the session message -->
+                        <th:block th:text="${@commonServiceImpl.removeSessionMessage()}"></th:block>
+                    </th:block>
+                </div>
+
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Sr. No</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Product</th>
+                                <th scope="col">Price</th>
+                                <th scope="col" class="text-center">Quantity</th>
+                                <th scope="col">Total Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Iterate over the cart items -->
+                            <tr th:each="cart, c : ${carts}" th:if="${cart.quantity > 0}">
+                                <th scope="row">[[${c.count}]]</th>
+                                <td>
+                                    <img th:src="@{'/img/product_img/' + ${cart.product.image}}"
+                                         width="70px" height="70px" style="border-radius: 5px;">
+                                </td>
+                                <td>[[${cart.product.title}]]</td>
+                                <td>&#8377; [[${cart.product.discountPrice}]]</td>
+                                <td class="text-center">
+                                    <!-- Decrease quantity -->
+                                    <a th:href="@{'/user/cartQuantityUpdate?action=de&sy=de&cid=' + ${cart.id}}" style="text-decoration: none;">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </a>
+                                    [[${cart.quantity}]]
+                                    <!-- Increase quantity -->
+                                    <a th:href="@{'/user/cartQuantityUpdate?action=in&sy=in&cid=' + ${cart.id}}" style="text-decoration: none;">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </a>
+                                </td>
+                                <td>&#8377; [[${cart.totalPrice}]]</td>
+                            </tr>
+                            <!-- Total price row -->
+                            <tr>
+                                <td colspan="4"></td>
+                                <td class="fw-bold">Total Price</td>
+                                <td class="fw-bold">&#8377; [[${totalOrderPrice}]]</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="text-center">
+                        <a href="/user/orders" class="btn btn-warning">Proceed to Payment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
