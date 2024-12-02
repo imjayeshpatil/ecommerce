@@ -249,7 +249,7 @@ public class AdminController {
 	
 	
 	@GetMapping("/view_products")
-	public String loadViewProduct(Model m, @RequestParam(defaultValue = "") String ch) {
+	public String loadViewProduct(Model m) String ch) {
 		List<Product> Products=null;
 		if(ch!=null && ch.length()>0)
 		{
