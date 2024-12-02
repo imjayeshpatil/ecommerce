@@ -106,7 +106,7 @@ public class AdminController {
 	}
 
 	@GetMapping("/category")
-	public String category(Model m,@RequestParam (name= "pageNo",defaultValue = "0") Integer pageNo,@RequestParam (name= "pageSize", defaultValue = "4") Integer pageSize ) {
+	public String category(Model m,@RequestParam Integer pageNo,@RequestParam (name= "pageSize", defaultValue = "4") Integer pageSize ) {
 
 //		m.addAttribute("categorys", categoryService.getAllCategory());
 
@@ -127,7 +127,7 @@ public class AdminController {
 	}
 
 	@PostMapping("/saveCategory")
-	public String saveCategory(@ModelAttribute Category category, @RequestParam("file") MultipartFile file,
+	public String saveCategory(@ModelAttribute Category category,
 			HttpSession session) throws IOException {
 
 		String imageName = file != null ? file.getOriginalFilename() : "default.jpg";
@@ -329,7 +329,7 @@ public class AdminController {
 	}
 
 	@GetMapping("/orders")
-	public String getAllOrders(Model m,@RequestParam (name= "pageNo",defaultValue = "0") Integer pageNo,
+	public String getAllOrders(Model m,@RequestParam Integer pageNo,
 			@RequestParam (name= "pageSize", defaultValue = "4") Integer pageSize ) {
 //		List<ProductOrder> allOrders = orderService.getAllOrders();
 		
@@ -376,7 +376,7 @@ public class AdminController {
 		return "redirect:/admin/orders";
 	}
 
-	@GetMapping("/view_notification") // URL to trigger the low stock product view
+	@GetMapping("/view") // URL to trigger the low stock product view
 	public String getLowStockProductsPage(Model model) {
 		// Fetch products with low stock (stock < 15)
 		List<Product> lowStockProducts = productService.getLowStockProducts();
@@ -386,22 +386,6 @@ public class AdminController {
 
 		// Return the view (the view that will display the low-stock products)
 		return "admin/view_notification"; // Return the Thymeleaf template for notification
-	}
-
-	@GetMapping("view_reports")
-	public String viewReport(Model model) {
-
-		List<Product> products = productService.getAllProducts(); // Fetch products
-	    model.addAttribute("products", products); // Add to model
-		// Get product report
-//		List<ProductReport> reports = productService.getProductReport(fromDate, toDate, productId);
-//
-//		// Add the reports and product list to the model
-//		model.addAttribute("reports", reports);
-//		model.addAttribute("products", productService.getAllProducts());
-
-		
-		return "admin/view_reports"; // Return the view_report HTML page
 	}
 	
 	@Autowired
