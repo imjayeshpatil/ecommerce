@@ -6,6 +6,7 @@
 ![Screenshot (274)](https://github.com/user-attachments/assets/b4df570f-3b52-41a4-a6d7-439b29db49c4)
 ## Product Page
 ![Screenshot (276)](https://github.com/user-attachments/assets/1ec93855-9a04-4d30-bdd1-0052a6d499a5)
+## Cart Page
 ![Screenshot (286)](https://github.com/user-attachments/assets/213e8686-d66f-4484-8c63-50ef263337c5)
 ![Screenshot (280)](https://github.com/user-attachments/assets/86688f45-c496-4575-ba33-f6599be80d23)
 ![Screenshot (279)](https://github.com/user-attachments/assets/374bd915-1c63-45c8-90f5-c6c96b1a82c7)
