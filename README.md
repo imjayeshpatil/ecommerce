@@ -18,6 +18,7 @@
 ![Screenshot (280)](https://github.com/user-attachments/assets/86688f45-c496-4575-ba33-f6599be80d23)
 ## Admin can add Products
 ![Screenshot (279)](https://github.com/user-attachments/assets/374bd915-1c63-45c8-90f5-c6c96b1a82c7)
+
 ![Screenshot (278)](https://github.com/user-attachments/assets/65f875c3-2706-4c6d-acc5-e9be3a82fe68)
 ![Screenshot (277)](https://github.com/user-attachments/assets/be18ae0c-c33e-437e-8f59-cfbbb1b5983e)
 
