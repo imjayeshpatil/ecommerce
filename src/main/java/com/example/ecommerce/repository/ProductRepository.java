@@ -21,12 +21,6 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 	@Query("UPDATE Product p SET p.stock = p.stock - :quantity WHERE p.id = :productId")
 	void updateStock(@Param("productId") Long productId, @Param("quantity") int quantity);
 
-	// Fetching the total sold stock for a product within a date range and status
-	@Query("SELECT COALESCE(SUM(po.quantity), 0) FROM ProductOrder po "
-			+ "WHERE po.product.id = :productId AND po.status = :status "
-			+ "AND po.orderDate BETWEEN :fromDate AND :toDate")
-	Optional<Integer> findSoldStock(@Param("productId") Long productId, @Param("status") String status,
-			@Param("fromDate") LocalDate fromDate, @Param("toDate") LocalDate toDate);
 
 	List<Product> findByIsActiveTrue();  //done
 
